@@ -1,0 +1,4 @@
+@openzeppelin/contracts/=./lib/openzeppelin-contracts/contracts/
+@diamond-3-hardhat=lib/diamond-3-hardhat/contracts
+@solady/=lib/solady/src/
+
