@@ -7,18 +7,30 @@ import "./Ownership.sol";
 import '@solady/utils/CREATE3.sol';
 
 
+
 contract EPCMint is OwnedInternal, HasOwnershipAuthProxyClient {
 
   constructor(AuthProxy proxy) AuthProxyClient(proxy) {}
 
   function epcAddress(string memory epcKey) public view returns (address) {
-    return epcAddressWithDeployer(epcKey, address(this));
-  }
-
-  function epcAddressWithDeployer(string memory epcKey, address deployer) public pure returns (address) {
-    bytes32 hash = keccak256(abi.encode("epc", epcKey));
-    return CREATE3.predictDeterministicAddress(hash, deployer);
+    return getEpcAddressWithDeployer(epcKey, address(this));
   }
 }
 
+function getEpcSalt(string memory epcKey) pure returns (bytes32 salt) {
+  /// @solidity memory-safe-assembly
+  assembly {
+    let len := mload(epcKey)
+    mstore(epcKey, "ETHEREUM PLACE CODE")
+    salt := keccak256(epcKey, add(len, 0x20))
+    mstore(epcKey, len)
+  }
+}
+
+
+function getEpcAddressWithDeployer(string memory epcKey, address deployer) pure returns (address) {
+
+  bytes32 salt = getEpcSalt(epcKey);
+  return CREATE3.predictDeterministicAddress(salt, deployer);
+}
 
