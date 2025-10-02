@@ -1,0 +1,93 @@
+[1m[33mWarning[0m[1m:[0m This is a nightly build of Foundry. It is recommended to use the latest stable version. To mute this warning set `FOUNDRY_DISABLE_NIGHTLY_WARNING` in your environment. 
+
+No files changed, compilation skipped
+Traces:
+  [4257214] [32mDeployEPC[0m::[32mrun[0m()
+    ├─ [0] [34mVM[0m::[34mstartBroadcast[0m()
+    │   └─ [34m← [Return][0m
+    ├─ [0] [34mVM[0m::[34menvAddress[0m("AUTHPROXY_ADDRESS")[33m [staticcall][0m
+    │   └─ [34m← [Return][0m <env var value>
+    ├─ [756590] [33m→ new[0m AuthProxy@0xf1ABD1C450BF1A71419f4EcC941c11A50ab6E489
+    │   └─ [32m← [Return][0m 3779 bytes of code
+    ├─ [2194543] [33m→ new[0m EPCRouter@0xb663883fC654e5C85B383Fd018e71e13e1ee3ef0
+    │   └─ [32m← [Return][0m 10848 bytes of code
+    ├─ [272321] [33m→ new[0m EPCAdmin@0xbAA2FeE420415e259149C9D95d06954a980190fc
+    │   └─ [32m← [Return][0m 1247 bytes of code
+    ├─ [0] [34mVM[0m::[34mffi[0m(["./manage.sh", "facetMethodIds", "EPCAdmin"])
+    │   └─ [34m← [Return][0m 0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000028da5cb5b00000000000000000000000000000000000000000000000000000000f2fde38b00000000000000000000000000000000000000000000000000000000
+    ├─ [149767] [32mEPCRouter[0m::[32mdiamondCut[0m([FacetCut({ facetAddress: 0xbAA2FeE420415e259149C9D95d06954a980190fc, action: 0, functionSelectors: [0x8da5cb5b, 0xf2fde38b] })], 0x0000000000000000000000000000000000000000, 0x)
+    │   ├─ emit DiamondCut([36m_diamondCut: [FacetCut({ facetAddress: 0xbAA2FeE420415e259149C9D95d06954a980190fc, action: 0, functionSelectors: [0x8da5cb5b, 0xf2fde38b] })], _init: 0x0000000000000000000000000000000000000000, _calldata: 0x[0m)
+    │   └─ [32m← [Stop][0m
+    ├─ [472949] [33m→ new[0m EPCMint@0xAA3a6F9201E6fA567D4A0d725063F35c5B9913d7
+    │   └─ [32m← [Return][0m 2247 bytes of code
+    ├─ [0] [34mVM[0m::[34mffi[0m(["./manage.sh", "facetMethodIds", "EPCMint"])
+    │   └─ [34m← [Return][0m 0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002bd44b076000000000000000000000000000000000000000000000000000000006c6458e300000000000000000000000000000000000000000000000000000000
+    ├─ [147767] [32mEPCRouter[0m::[32mdiamondCut[0m([FacetCut({ facetAddress: 0xAA3a6F9201E6fA567D4A0d725063F35c5B9913d7, action: 0, functionSelectors: [0xbd44b076, 0x6c6458e3] })], 0x0000000000000000000000000000000000000000, 0x)
+    │   ├─ emit DiamondCut([36m_diamondCut: [FacetCut({ facetAddress: 0xAA3a6F9201E6fA567D4A0d725063F35c5B9913d7, action: 0, functionSelectors: [0xbd44b076, 0x6c6458e3] })], _init: 0x0000000000000000000000000000000000000000, _calldata: 0x[0m)
+    │   └─ [32m← [Stop][0m
+    ├─ [104357] [32mEPCRouter[0m::[32mfallback[0m()
+    │   ├─ [103461] [32mEPCMint[0m::[32msanityTest[0m()[33m [delegatecall][0m
+    │   │   ├─ [1617] [33m→ new[0m <unknown>@0x845F18a57De30F81669AD05D2BF2b91835b19B17
+    │   │   │   └─ [32m← [Return][0m 8 bytes of code
+    │   │   ├─ [67156] [32m0x845F18a57De30F81669AD05D2BF2b91835b19B17[0m::[32m60806040[0m(52348015600e575f80fd5b5060af80601a5f395ff3fe6080604052348015600e575f80fd5b50600436106026575f3560e01c80639227793314602a575b5f80fd5b60306044565b604051603b91906062565b60405180910390f35b5f606f905090565b5f819050919050565b605c81604c565b82525050565b5f60208201905060735f8301846055565b9291505056fea264697066735822122028eff5688b0b22d6d25a232fbf8cbbb607b57a71aeea0bf0ee96c4363f80905464736f6c634300081a0033)
+    │   │   │   ├─ [35085] [33m→ new[0m EpcMintTest@0x897B5A033a9494bf7DdD54A0cFf77507Cf15a50a
+    │   │   │   │   └─ [32m← [Return][0m 175 bytes of code
+    │   │   │   └─ [32m← [Stop][0m
+    │   │   ├─ [310] [32mEpcMintTest[0m::[32mabc[0m()[33m [staticcall][0m
+    │   │   │   └─ [32m← [Return][0m 111
+    │   │   └─ [32m← [Return][0m EpcMintTest: [0x897B5A033a9494bf7DdD54A0cFf77507Cf15a50a]
+    │   └─ [32m← [Return][0m EpcMintTest: [0x897B5A033a9494bf7DdD54A0cFf77507Cf15a50a]
+    ├─ [0] [34mVM[0m::[34mstopBroadcast[0m()
+    │   └─ [34m← [Return][0m
+    └─ [32m← [Stop][0m
+
+
+Script ran successfully.
+
+## Setting up 1 EVM.
+==========================
+Simulated On-chain Traces:
+
+  [756590] [33m→ new[0m AuthProxy@0xf1ABD1C450BF1A71419f4EcC941c11A50ab6E489
+    └─ [32m← [Return][0m 3779 bytes of code
+
+  [2194543] [33m→ new[0m EPCRouter@0xb663883fC654e5C85B383Fd018e71e13e1ee3ef0
+    └─ [32m← [Return][0m 10848 bytes of code
+
+  [272321] [33m→ new[0m EPCAdmin@0xbAA2FeE420415e259149C9D95d06954a980190fc
+    └─ [32m← [Return][0m 1247 bytes of code
+
+  [154267] [32mEPCRouter[0m::[32mdiamondCut[0m([FacetCut({ facetAddress: 0xbAA2FeE420415e259149C9D95d06954a980190fc, action: 0, functionSelectors: [0x8da5cb5b, 0xf2fde38b] })], 0x0000000000000000000000000000000000000000, 0x)
+    ├─ emit DiamondCut([36m_diamondCut: [FacetCut({ facetAddress: 0xbAA2FeE420415e259149C9D95d06954a980190fc, action: 0, functionSelectors: [0x8da5cb5b, 0xf2fde38b] })], _init: 0x0000000000000000000000000000000000000000, _calldata: 0x[0m)
+    └─ [32m← [Stop][0m
+
+  [472949] [33m→ new[0m EPCMint@0xAA3a6F9201E6fA567D4A0d725063F35c5B9913d7
+    └─ [32m← [Return][0m 2247 bytes of code
+
+  [157067] [32mEPCRouter[0m::[32mdiamondCut[0m([FacetCut({ facetAddress: 0xAA3a6F9201E6fA567D4A0d725063F35c5B9913d7, action: 0, functionSelectors: [0xbd44b076, 0x6c6458e3] })], 0x0000000000000000000000000000000000000000, 0x)
+    ├─ emit DiamondCut([36m_diamondCut: [FacetCut({ facetAddress: 0xAA3a6F9201E6fA567D4A0d725063F35c5B9913d7, action: 0, functionSelectors: [0xbd44b076, 0x6c6458e3] })], _init: 0x0000000000000000000000000000000000000000, _calldata: 0x[0m)
+    └─ [32m← [Stop][0m
+
+  [110857] [32mEPCRouter[0m::[32mfallback[0m()
+    ├─ [103461] [32mEPCMint[0m::[32msanityTest[0m()[33m [delegatecall][0m
+    │   ├─ [1617] [33m→ new[0m <unknown>@0x845F18a57De30F81669AD05D2BF2b91835b19B17
+    │   │   └─ [32m← [Return][0m 8 bytes of code
+    │   ├─ [67156] [32m0x845F18a57De30F81669AD05D2BF2b91835b19B17[0m::[32m60806040[0m(52348015600e575f80fd5b5060af80601a5f395ff3fe6080604052348015600e575f80fd5b50600436106026575f3560e01c80639227793314602a575b5f80fd5b60306044565b604051603b91906062565b60405180910390f35b5f606f905090565b5f819050919050565b605c81604c565b82525050565b5f60208201905060735f8301846055565b9291505056fea264697066735822122028eff5688b0b22d6d25a232fbf8cbbb607b57a71aeea0bf0ee96c4363f80905464736f6c634300081a0033)
+    │   │   ├─ [35085] [33m→ new[0m EpcMintTest@0x897B5A033a9494bf7DdD54A0cFf77507Cf15a50a
+    │   │   │   └─ [32m← [Return][0m 175 bytes of code
+    │   │   └─ [32m← [Stop][0m
+    │   ├─ [310] [32mEpcMintTest[0m::[32mabc[0m()[33m [staticcall][0m
+    │   │   └─ [32m← [Return][0m 111
+    │   └─ [32m← [Return][0m EpcMintTest: [0x897B5A033a9494bf7DdD54A0cFf77507Cf15a50a]
+    └─ [32m← [Return][0m EpcMintTest: [0x897B5A033a9494bf7DdD54A0cFf77507Cf15a50a]
+
+
+==========================
+
+Chain 11155111
+
+Estimated gas price: 0.001024774 gwei
+
+Estimated total gas used for script: 6136179
+
+Estimated amount required: 0.000006288196698546 ETH
