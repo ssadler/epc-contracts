@@ -17,7 +17,7 @@ contract TestEPC is Test {
     string memory saltText = "hi";
     bytes32 salt = getEpcSalt(saltText);
     address deployed = CREATE3.deployDeterministic(type(EPCStub).creationCode, salt);
-    address predicted = getEpcAddressWithDeployer(saltText, address(this));
+    address predicted = deriveEpcAddressWithDeployer(address(this), saltText);
     assertEq(deployed, predicted);
   }
 }

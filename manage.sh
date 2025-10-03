@@ -16,11 +16,19 @@ set -e
 #}
 
 
-
 function deploy_sepolia () {
   export AUTHPROXY_ADDRESS=0x0000000000000000000000000000000000000000
   _run_deployment forge script script/Deploy.s.sol:DeployEPC \
     --chain sepolia --rpc-url $SEPOLIA_RPC_URL \
+    --broadcast --ffi -vvvv --color always \
+    $PROD_SIGNER \
+    $@
+}
+
+function deploy_base () {
+  export AUTHPROXY_ADDRESS=0x801fF9aB1e42da300cc1bfE03a66Ec5520781f53
+  _run_deployment forge script script/Deploy.s.sol:DeployEPC \
+    --chain base --rpc-url $BASE_RPC_URL \
     --broadcast --ffi -vvvv --color always \
     $PROD_SIGNER \
     $@
@@ -58,6 +66,12 @@ function facetMethodIds () {
     printf '%-64s' "$line" | tr ' ' '0'
   done
 }
+
+
+#verify () {
+  #CHAIN=sepolia forge verify-contract 0xf1ABD1C450BF1A71419f4EcC941c11A50ab6E489 AuthProxy --show-standard-json-input | jq
+
+#}
 
 
 
